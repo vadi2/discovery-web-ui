@@ -1,3 +1,22 @@
 {
-  
+  "record-types": {
+    "Allergies": "Allergies",
+    "Claims": "Claims",
+    "Condition": "Conditions",
+    "DocumentReferences": "Document References",
+    "Encounter": "Encounters",
+    "Exams": "Exams",
+    "ExplanationOfBenefit": "Benefits",
+    "Immunizations": "Immunizations",
+    "LabResults": "Lab Results",
+    "MedsAdministration": "Meds Administration",
+    "MedsDispensed": "Meds Dispensed",
+    "MedicationRequest": "Meds Requested",
+    "MedsStatement": "Meds Statement",
+    "Procedures": "Procedures",
+    "Procedure Requests": "Procedure Requests",
+    "SocialHistory": "Social History",
+    "Observation": "Vital Signs",
+    "Unimplemented": "Unimplemented"
+  }
 }
