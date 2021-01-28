@@ -661,9 +661,10 @@ class ContentPanel extends React.PureComponent {
     // console.info('this.isVirtualDisplay: ', this.isVirtualDisplay());
     const contents = !this.state.currResources || this.renderDotOrAll();
     // console.info('contents: ', contents);
-    // const heading = `Displaying ${this.state.currResources.length} of ${this.props.totalResCount} record${this.props.totalResCount === 1 ? '' : 's'}`;
+    const subCount = this.state.currResources.length;
+    // const heading = `Displaying ${subCount} of ${this.props.totalResCount} record${this.props.totalResCount === 1 ? '' : 's'}`;
     const { t, totalResCount } = this.props;
-    const heading = t('card-details.heading', { totalResCount });
+    const heading = t('card-details.heading', { subCount, count: totalResCount });
     return (
       <div>
         <div className="content-panel-inner-title">

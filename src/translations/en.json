@@ -1,6 +1,7 @@
 {
   "card-details": {
-    "heading": "foobar {{totalResCount}}"
+    "heading_plural": "Displaying {{subCount}} of {{count}} records",
+    "heading": "Displaying {{subCount}} of {{count}} record"
   },
   "record-types": {
     "Allergies": "Allergies",
