@@ -4,6 +4,7 @@ import {
   useRecoilValue,
 } from 'recoil';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { dotClickContextState } from '../StandardFilters';
 
@@ -660,13 +661,15 @@ class ContentPanel extends React.PureComponent {
     // console.info('this.isVirtualDisplay: ', this.isVirtualDisplay());
     const contents = !this.state.currResources || this.renderDotOrAll();
     // console.info('contents: ', contents);
-
+    // const heading = `Displaying ${this.state.currResources.length} of ${this.props.totalResCount} record${this.props.totalResCount === 1 ? '' : 's'}`;
+    const { t, totalResCount } = this.props;
+    const heading = t('card-details.heading', { totalResCount });
     return (
       <div>
         <div className="content-panel-inner-title">
           <div className="content-panel-inner-title-left">
             <div className="content-panel-item-count">
-              { `Displaying ${this.state.currResources.length} of ${this.props.totalResCount} record${this.props.totalResCount === 1 ? '' : 's'}` }
+              { heading }
             </div>
 
             { config.enableContentPanelLeftRight && (
@@ -743,17 +746,19 @@ class ContentPanel extends React.PureComponent {
   }
 }
 
-const ContentPanelHOC = React.memo((props) => {
+const ContentPanelHOC = ((props) => {
   const dotClickContext = useRecoilValue(dotClickContextState);
+  const { t } = useTranslation();
 
   return (
     <ContentPanel
       {...props} // eslint-disable-line react/jsx-props-no-spreading
       context={dotClickContext}
+      t={t}
     />
   );
 });
 
 ContentPanelHOC.propTypes = ContentPanel.propTypes;
 
-export default ContentPanelHOC;
+export default (ContentPanelHOC);

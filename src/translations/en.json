@@ -1,4 +1,7 @@
 {
+  "card-details": {
+    "heading": "foobar {{totalResCount}}"
+  },
   "record-types": {
     "Allergies": "Allergies",
     "Claims": "Claims",
