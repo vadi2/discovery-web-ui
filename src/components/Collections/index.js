@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { useRecoilValue } from 'recoil';
-import { allRecordIds, resourcesState, patientRecord } from '../../recoil';
+import {
+  allRecordIds, groupedRecordIdsState, resourcesState, patientRecord,
+} from '../../recoil';
 import PersistentDrawerRight from '../ContentPanel/Drawer';
 import RecordCard from '../cards/RecordCard';
 
@@ -18,6 +20,7 @@ const CardList = ({
 
 const Collections = () => {
   const recordIds = useRecoilValue(allRecordIds);
+  const groupedRecordIds = useRecoilValue(groupedRecordIdsState);
   const resources = useRecoilValue(resourcesState);
   const patient = useRecoilValue(patientRecord);
 
@@ -33,14 +36,27 @@ const Collections = () => {
         { String(loading) }
       </div>
       <div className="collections-content">
-        <h4>patient:</h4>
-        <pre>
-          { JSON.stringify(patient, null, '  ') }
-        </pre>
-        <h4>records:</h4>
-        <pre>
-          { JSON.stringify(records, null, '  ') }
-        </pre>
+        <hr />
+        <div>
+          <h4>groupedRecordIds:</h4>
+          <pre>
+            { JSON.stringify(groupedRecordIds, null, '  ') }
+          </pre>
+        </div>
+        <hr />
+        <div style={{ backgroundColor: '#ff9' }}>
+          <h4>patient:</h4>
+          <pre>
+            { JSON.stringify(patient, null, '  ') }
+          </pre>
+        </div>
+        <hr />
+        <div>
+          <h4>records:</h4>
+          <pre>
+            { JSON.stringify(records, null, '  ') }
+          </pre>
+        </div>
       </div>
       <PersistentDrawerRight>
         <div className="card-list">
